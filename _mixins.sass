@@ -1,15 +1,4 @@
 // ----------------------------------------------------------------------------
-//  Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library
-//  By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets
-//
-//  List of CSS3 Sass Mixins File to be @imported and @included as you need
-//
-//  The purpose of this library is to facilitate the use of CSS3 on different 
-//  browsers avoiding HARD TO READ and NEVER
-//  ENDING css files
-//
-//  note: All CSS3 Properties are being supported by Safari 5
-//  more info: http://www.findmebyip.com/litmus/#css3-properties
 //
 //  Mixins available:
 //    -   background-gradient
@@ -35,6 +24,7 @@
 //    -   transform
 //    -   transition
 //    -   triple-borders
+//    -   breakpoint
 //
 // ----------------------------------------------------------------------------
 
@@ -216,3 +206,25 @@
   -webkit-box-shadow: 0 0 0 1px $colorTwo, 0 0 0 2px $colorThree
   -moz-box-shadow:    0 0 0 1px $colorTwo, 0 0 0 2px $colorThree
   box-shadow:         0 0 0 1px $colorTwo, 0 0 0 2px $colorThree
+
+// BREAKPOINTS
+
+=breakpoint($point)
+  @if $point == larger
+    @media (min-width: 1200px) // Larger desktop
+      @content
+  @else if $point == large    
+    @media (max-width: 1199px) // Desktop
+      @content
+  @else if $point == medium
+    @media (max-width: 980px)  // Tablet landscape
+      @content
+  @else if $point == small
+    @media (max-width: 768px)  // Tablet
+      @content
+  @else if $point == tiny
+    @media (max-width: 480px)  // Phone
+      @content
+  @else
+    @media (max-width: $point) // Custom breakpoint
+      @content
