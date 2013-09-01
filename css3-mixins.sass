@@ -1,44 +1,44 @@
-/* -------------------------------------------------------------
- *  Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library
- *  By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets
- *
- *  List of CSS3 Sass Mixins File to be @imported and @included as you need
- *
- *  The purpose of this library is to facilitate the use of CSS3 on different 
- *  browsers avoiding HARD TO READ and NEVER
- *  ENDING css files
- *
- *  note: All CSS3 Properties are being supported by Safari 5
- *  more info: http://www.findmebyip.com/litmus/#css3-properties
- *
- *  Mixins available:
- *    -   background-gradient
- *    -   background-size
- *    -   border-radius
- *    -   border-radius-separate
- *    -   box
- *    -   box-rgba
- *    -   box-shadow
- *    -   box-sizing
- *    -   columns
- *    -   double-borders
- *    -   flex
- *    -   flip
- *    -   font-face
- *    -   opacity
- *    -   outline radius
- *    -   resize
- *    -   rotate
- *    CSS Matrix Rotation Calculator 
- *    http://www.boogdesign.com/examples/transforms/matrix-calculator.html
- *    -   text-shadow
- *    -   transform
- *    -   transition
- *    -   triple-borders
- *
- *-------------------------------------------------------------*/
+// ----------------------------------------------------------------------------
+//  Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library
+//  By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets
+//
+//  List of CSS3 Sass Mixins File to be @imported and @included as you need
+//
+//  The purpose of this library is to facilitate the use of CSS3 on different 
+//  browsers avoiding HARD TO READ and NEVER
+//  ENDING css files
+//
+//  note: All CSS3 Properties are being supported by Safari 5
+//  more info: http://www.findmebyip.com/litmus/#css3-properties
+//
+//  Mixins available:
+//    -   background-gradient
+//    -   background-size
+//    -   border-radius
+//    -   border-radius-separate
+//    -   box
+//    -   box-rgba
+//    -   box-shadow
+//    -   box-sizing
+//    -   columns
+//    -   double-borders
+//    -   flex
+//    -   flip
+//    -   font-face
+//    -   opacity
+//    -   outline radius
+//    -   resize
+//    -   rotate
+//    CSS Matrix Rotation Calculator 
+//    http://www.boogdesign.com/examples/transforms/matrix-calculator.html
+//    -   text-shadow
+//    -   transform
+//    -   transition
+//    -   triple-borders
+//
+// ----------------------------------------------------------------------------
 
-/* BACKGROUND GRADIENT */
+// BACKGROUND GRADIENT
 =background-gradient($startColor: #3C3C3C, $endColor: #999999)
   background-color: $startColor
   background-image: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor))
@@ -50,14 +50,14 @@
   filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr=$startColor, EndColorStr=$endColor)
 
 
-/* BACKGROUND SIZE */
+// BACKGROUND SIZE
 =background-size($width: 100%, $height: 100%)
   -moz-background-size: $width $height
   -webkit-background-size: $width $height
   background-size: $width $height
 
 
-/* BORDER RADIUS */
+// BORDER RADIUS
 =border-radius($radius: 5px)
   -moz-border-radius:    $radius
   -webkit-border-radius: $radius
@@ -79,7 +79,7 @@
   border-bottom-right-radius: $bottomRightRadius
   border-bottom-left-radius:  $bottomLeftRadius
 
-/* BOX */
+// BOX
 =box($orient: horizontal, $pack: center, $align: center)
   display: -webkit-box
   display: -moz-box
@@ -97,7 +97,7 @@
   -moz-box-align:    $align
   box-align:         $align
 
-/* BOX RGBA */
+// BOX RGBA
 =box-rgba($r: 60, $g: 3, $b: 12, $opacity: 0.23, $color: #3C3C3C)
   background-color: transparent
   background-color: rgba($r, $g, $b, $opacity)
@@ -105,19 +105,19 @@
   zoom:   1
 
 
-/* BOX SHADOW */
+// BOX SHADOW
 =box-shadow($params: 2px 2px 5px rgba(black,.33))
   -webkit-box-shadow: $params
   -moz-box-shadow:    $params
   box-shadow:         $params
 
-/* BOX SIZING */
+// BOX SIZING
 =box-sizing($type: border-box)
   -webkit-box-sizing:   $type
   -moz-box-sizing:      $type
   box-sizing:           $type
 
-/* COLUMNS */
+// COLUMNS
 =columns($count: 3, $gap: 10)
   -webkit-column-count: $count
   -moz-column-count:    $count
@@ -127,7 +127,7 @@
   -moz-column-gap:      $gap
   column-gap:           $gap
 
-/* DOUBLE BORDERS */
+// DOUBLE BORDERS
 =double-borders($colorOne: #3C3C3C, $colorTwo: #999999, $radius: 0)
   border: 1px solid $colorOne
 
@@ -137,13 +137,13 @@
 
   @include border-radius( $radius )
 
-/* FLEX */
+// FLEX
 =flex($value: 1)
   -webkit-box-flex: $value
   -moz-box-flex:    $value
   box-flex:         $value
 
-/* FLIP */
+// FLIP
 =flip($scaleX: -1)
   -moz-transform:    scaleX($scaleX)
   -o-transform:      scaleX($scaleX)
@@ -152,12 +152,12 @@
   filter:            FlipH
   -ms-filter:        "FlipH"
 
-/* FONT FACE */
+// FONT FACE
 =font-face($fontFamily: myFont, $eotFileSrc: 'myFont.eot', $woffFileSrc: 'myFont.woff', $ttfFileSrc: 'myFont.ttf')
   font-family: $fontFamily
   src: url($eotFileSrc)  format('eot'), url($woffFileSrc) format('woff'), url($ttfFileSrc)  format('truetype')
 
-/* OPACITY */
+// OPACITY
 =opacity($opacity: 0.5)
   filter:         alpha(opacity=($opacity * 100))
   -ms-filter:     "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + ($opacity * 100) + ")"
@@ -166,19 +166,19 @@
   opacity:        $opacity
 
 
-/* OUTLINE RADIUS */
+// OUTLINE RADIUS
 =outline-radius($radius: 5px)
   -webkit-outline-radius: $radius
   -moz-outline-radius:    $radius
   outline-radius:         $radius
 
-/* RESIZE */
+// RESIZE
 =resize($direction: both)
   -webkit-resize: $direction
   -moz-resize:    $direction
   resize:         $direction
 
-/* ROTATE*/
+// ROTAT
 =rotate($deg: 0, $m11: 0, $m12: 0, $m21: 0, $m22: 0)
   -moz-transform: rotate($deg + deg)
   -o-transform: rotate($deg + deg)
@@ -188,17 +188,17 @@
   filter: progid:DXImageTransform.Microsoft.Matrix(M11=$m11, M12=$m12,M21=$m21, M22=$m22, sizingMethod='auto expand')
   zoom: 1
 
-/* TEXT SHADOW */
+// TEXT SHADOW
 =text-shadow($params: 2px 2px 5px rgba(black, .33))
   text-shadow: $params
 
-/* TRANSFORM  */
+// TRANSFORM 
 =transform($params)
   -webkit-transform: $params
   -moz-transform:    $params
   transform:         $params
 
-/* TRANSITION */
+// TRANSITION
 =transition($params: all .2s ease-in-out)
   -moz-transition:    $params
   -o-transition:      $params
@@ -207,7 +207,7 @@
   transition:         $params
 
 
-/* TRIPLE BORDERS */
+// TRIPLE BORDERS
 =triple-borders($colorOne: #3C3C3C, $colorTwo: #999999, $colorThree: #000000, $radius: 0)
   border: 1px solid $colorOne
 
@@ -216,5 +216,3 @@
   -webkit-box-shadow: 0 0 0 1px $colorTwo, 0 0 0 2px $colorThree
   -moz-box-shadow:    0 0 0 1px $colorTwo, 0 0 0 2px $colorThree
   box-shadow:         0 0 0 1px $colorTwo, 0 0 0 2px $colorThree
-
-
